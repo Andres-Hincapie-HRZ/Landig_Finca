@@ -15,8 +15,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -45,6 +44,9 @@
                         <a class="nav-link" href="#services">Servicios</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#video">Video</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#gallery">Galería</a>
                     </li>
                     <li class="nav-item">
@@ -61,7 +63,7 @@
         <div class="container">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6">
-                    <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="hero-content animate-on-scroll animate-left">
                         <h1 class="hero-title">La Romelia</h1>
                         <h2 class="hero-subtitle">Finca Premium</h2>
                         <p class="hero-description">Donde cada evento se convierte en una experiencia inolvidable. Espacios únicos, servicios excepcionales y la elegancia que tu celebración merece.</p>
@@ -70,15 +72,15 @@
                                 <i class="fas fa-calendar-alt"></i>
                                 Reservar Ahora
                             </a>
-                            <a href="#gallery" class="btn-secondary">
+                            <a href="#video" class="btn-secondary">
                                 <i class="fas fa-play"></i>
-                                Ver Galería
+                                Ver Video
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="hero-image animate-on-scroll animate-right">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="La Romelia - Vista Principal" class="img-fluid">
                     </div>
                 </div>
@@ -90,29 +92,29 @@
     <section id="about" class="about-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="about-content">
+                <div class="col-lg-6">
+                    <div class="about-content animate-on-scroll animate-left">
                         <h2 class="section-title">Experiencia y Elegancia</h2>
                         <p class="section-subtitle">Más de 10 años creando momentos únicos</p>
                         <p>La Romelia es más que una finca, es el escenario perfecto donde tus sueños cobran vida. Nuestras instalaciones premium y servicios personalizados garantizan que cada evento sea una experiencia extraordinaria.</p>
                         <div class="stats-grid">
-                            <div class="stat-item">
+                            <div class="stat-item animate-on-scroll">
                                 <h3>500+</h3>
                                 <p>Eventos Realizados</p>
                             </div>
-                            <div class="stat-item">
+                            <div class="stat-item animate-on-scroll">
                                 <h3>150</h3>
                                 <p>Capacidad Máxima</p>
                             </div>
-                            <div class="stat-item">
+                            <div class="stat-item animate-on-scroll">
                                 <h3>24/7</h3>
                                 <p>Atención Personalizada</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="about-images">
+                <div class="col-lg-6">
+                    <div class="about-images animate-on-scroll animate-right">
                         <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Instalaciones La Romelia" class="img-fluid main-image">
                         <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salón de eventos" class="img-fluid secondary-image">
                     </div>
@@ -123,14 +125,14 @@
     <!-- Services Section -->
     <section id="services" class="services-section">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
+            <div class="text-center mb-5 animate-on-scroll">
                 <h2 class="section-title">Nuestros Servicios</h2>
                 <p class="section-subtitle">Experiencias únicas diseñadas para cada ocasión especial</p>
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-on-scroll">
                         <div class="service-icon">
                             <i class="fas fa-heart"></i>
                         </div>
@@ -144,8 +146,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-on-scroll">
                         <div class="service-icon">
                             <i class="fas fa-birthday-cake"></i>
                         </div>
@@ -159,8 +161,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-card">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-on-scroll">
                         <div class="service-icon">
                             <i class="fas fa-briefcase"></i>
                         </div>
@@ -177,16 +179,46 @@
         </div>
     </section>
 
+    <!-- Video Section -->
+    <section id="video" class="video-section">
+        <div class="container">
+            <div class="text-center mb-5 animate-on-scroll">
+                <h2 class="section-title text-white">Recorrido Virtual</h2>
+                <p class="section-subtitle text-white">Descubre la belleza de La Romelia en nuestro video exclusivo</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="video-container animate-on-scroll animate-fade">
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="La Romelia - Recorrido Virtual"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h4>Experiencia Inmersiva</h4>
+                            <p>Sumérgete en la elegancia y belleza natural de nuestras instalaciones. Cada rincón de La Romelia ha sido diseñado para crear momentos inolvidables.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery Section -->
     <section id="gallery" class="gallery-section">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
+            <div class="text-center mb-5 animate-on-scroll">
                 <h2 class="section-title">Galería de Espacios</h2>
                 <p class="section-subtitle">Descubre cada rincón de nuestras instalaciones premium</p>
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vista exterior">
                     <div class="gallery-overlay">
                         <h5>Jardines Exteriores</h5>
@@ -194,7 +226,7 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salón principal">
                     <div class="gallery-overlay">
                         <h5>Salón Principal</h5>
@@ -202,7 +234,7 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Área de piscina">
                     <div class="gallery-overlay">
                         <h5>Área de Piscina</h5>
@@ -210,7 +242,7 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Habitaciones">
                     <div class="gallery-overlay">
                         <h5>Suites Premium</h5>
@@ -218,7 +250,7 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Zona BBQ">
                     <div class="gallery-overlay">
                         <h5>Zona BBQ</h5>
@@ -226,7 +258,7 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+                <div class="gallery-item animate-on-scroll">
                     <img src="https://images.unsplash.com/photo-1600298881974-6be191ceeda1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sala de reuniones">
                     <div class="gallery-overlay">
                         <h5>Sala de Reuniones</h5>
@@ -240,14 +272,14 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
+            <div class="text-center mb-5 animate-on-scroll">
                 <h2 class="section-title text-white">Contáctanos</h2>
                 <p class="section-subtitle text-white">Estamos aquí para hacer realidad el evento de tus sueños</p>
             </div>
 
             <div class="row g-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="contact-info">
+                <div class="col-lg-6">
+                    <div class="contact-info animate-on-scroll animate-left">
                         <h4 class="mb-4 text-white">Información de Contacto</h4>
                         
                         <div class="contact-item">
@@ -284,8 +316,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="contact-form">
+                <div class="col-lg-6">
+                    <div class="contact-form animate-on-scroll animate-right">
                         <h4 class="mb-4 text-white">Solicita tu Cotización</h4>
                         <form id="contactForm">
                             <div class="row g-3">
@@ -352,8 +384,7 @@
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        <!-- AOS Animation JS -->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
         <!-- Custom JavaScript -->
         <script src="script.js"></script>

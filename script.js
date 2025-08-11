@@ -1,12 +1,3 @@
-// ===== INITIALIZE AOS ANIMATION LIBRARY =====
-AOS.init({
-    duration: 800,
-    easing: 'ease-in-out',
-    once: true,
-    offset: 100,
-    delay: 100
-});
-
 // ===== SMOOTH SCROLLING FOR NAVIGATION LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -25,7 +16,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===== NAVBAR SCROLL EFFECTS =====
-let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', function() {
@@ -37,11 +27,6 @@ window.addEventListener('scroll', function() {
     } else {
         navbar.classList.remove('scrolled');
     }
-    
-    // Keep navbar always visible (fixed)
-    navbar.style.transform = 'translateY(0)';
-    
-    lastScrollTop = scrollTop;
 });
 
 // ===== ACTIVE NAVIGATION LINK =====
@@ -186,7 +171,6 @@ function showNotification(message, type = 'info') {
         box-shadow: 0 5px 25px rgba(0,0,0,0.2);
         z-index: 10000;
         max-width: 400px;
-        animation: slideInRight 0.3s ease;
         font-family: 'Montserrat', sans-serif;
     `;
     
@@ -196,8 +180,7 @@ function showNotification(message, type = 'info') {
     // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentElement) {
-            notification.style.animation = 'slideOutRight 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
+            notification.remove();
         }
     }, 5000);
 }
@@ -245,20 +228,12 @@ function showImageModal(src, title, description) {
     document.body.appendChild(modal);
     document.body.style.overflow = 'hidden';
     
-    // Agregar clase para animación de entrada
-    setTimeout(() => {
-        modal.style.opacity = '1';
-    }, 10);
-    
     // Función para cerrar modal
     function closeModal() {
-        modal.style.animation = 'modalFadeOut 0.3s ease';
-        setTimeout(() => {
-            if (modal.parentElement) {
-                modal.remove();
-            }
-            document.body.style.overflow = 'auto';
-        }, 300);
+        if (modal.parentElement) {
+            modal.remove();
+        }
+        document.body.style.overflow = 'auto';
     }
     
     // Event listeners para cerrar modal
@@ -283,111 +258,50 @@ function showImageModal(src, title, description) {
     });
 }
 
-// ===== SCROLL ANIMATIONS =====
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for scroll animations
+// ===== ANIMACIONES SUAVES SIN CONFLICTOS =====
 document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .stat-item');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-});
+    // Configuración del Intersection Observer para animaciones
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -30px 0px'
+    };
 
-// ===== PERFORMANCE OPTIMIZATIONS =====
-// Lazy loading for images
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
+                const element = entry.target;
+                
+                // Pequeño delay para evitar conflictos
+                setTimeout(() => {
+                    // Aplicar la animación correspondiente
+                    if (element.classList.contains('animate-left')) {
+                        element.classList.add('animate-fadeInLeft');
+                    } else if (element.classList.contains('animate-right')) {
+                        element.classList.add('animate-fadeInRight');
+                    } else if (element.classList.contains('animate-fade')) {
+                        element.classList.add('animate-fadeIn');
+                    } else {
+                        element.classList.add('animate-fadeInUp');
+                    }
+                }, 100);
+                
+                // Dejar de observar el elemento
+                observer.unobserve(element);
             }
         });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-});
+    }, observerOptions);
 
-// ===== ADD CUSTOM CSS ANIMATIONS =====
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    .notification-content {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .notification-close {
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        padding: 0;
-        margin-left: auto;
-        font-size: 1.1rem;
-    }
-    
-    .navbar {
-        transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-    }
-`;
-document.head.appendChild(style);
+    // Observar todos los elementos con clase animate-on-scroll
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach((el, index) => {
+        // Pequeño delay escalonado para evitar animaciones simultáneas
+        setTimeout(() => {
+            observer.observe(el);
+        }, index * 50);
+    });
+});
 
 // ===== INITIALIZE ON LOAD =====
 window.addEventListener('load', function() {
-    // Hide loading spinner if exists
-    const loader = document.querySelector('.loader');
-    if (loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => loader.remove(), 500);
-    }
-    
-    // Initialize any additional features
     console.log('La Romelia website loaded successfully');
 });
